@@ -17,7 +17,7 @@
         <p>Bite Blog</p>
         <ul>
           <li class="button" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</li>
-          <li class="button">Log In</li>
+          <li class="button" data-bs-toggle="modal" data-bs-target="#logInModal">Log In</li>
         </ul>
         <ul class="hidden">
           <li>Blog</li>
@@ -32,31 +32,56 @@
       </div>
 
 
-<!-- Sign Up Modal -->
-<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <!-- Sign Up Modal -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up-form">
+                Email: <input name="credentials[email]" type="email" placeholder="email">
+                <br>
+                Password: <input name="credentials[password]" type="password" placeholder="password">
+                <br>
+                Password Confirmation: <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+                <br>
+                <button type="submit">Sign Up</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <form id="sign-up-form">
-          Email: <input name="credentials[email]" type="email" placeholder="email">
-          <br>
-          Password: <input name="credentials[password]" type="password" placeholder="password">
-          <br>
-          Password Confirmation: <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
-          <br>
-          <button type="submit">Sign Up</button>
-        </form>
+
+      <!-- Log In Modal -->
+      <div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="logInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="logInModalLabel">Log In</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-in-form">
+                Email: <input name="credentials[email]" type="email" placeholder="email">
+                <br>
+                Password: <input name="credentials[password]" type="password" placeholder="password">
+                <br>
+                <button type="submit">Sign In</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
     </body>
 </html>
