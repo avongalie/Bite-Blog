@@ -38,6 +38,34 @@ li{
     padding: 3px 10px;
 }
 
+.post{
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    font-size: 12pt;
+}
+
+.modal {
+    color: black;
+}
+
+.modal-body{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: 5px;
+    font-size: 15pt;
+}
+
+.profile-pic{
+    width: 30px;
+}
+
 .hidden{
     display: none;
 }

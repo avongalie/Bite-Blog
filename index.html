@@ -25,5 +25,38 @@
           <li>Home</li>
         </ul>
       </nav>
+      <div class="post">  
+        <p><img class="profile-pic" src="images/2ccs.png"> <span class="title">TITLE</span></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+
+
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up-form">
+          Email: <input name="credentials[email]" type="email" placeholder="email">
+          <br>
+          Password: <input name="credentials[password]" type="password" placeholder="password">
+          <br>
+          Password Confirmation: <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+          <br>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     </body>
 </html>
