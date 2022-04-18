@@ -41,6 +41,11 @@ const onSignOut = function(){
     $('#sign-in').show();
     $('#logged-in').hide();
      $('#sign-out').hide();
+
+
+     $('#main-content').html("");
+     $('#blog-title').text("Bite Blog");
+     $('body').css('background-color', '#BD8C61')
     
 }
 
