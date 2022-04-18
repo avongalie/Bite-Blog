@@ -36,6 +36,7 @@ const onSignIn = function(event){
     let form = event.target
     let data = getFormFields(form);
 
+
         authApi
             .signIn(data)
             .then((response) => authUi.onSignInSuccess(response))

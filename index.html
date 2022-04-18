@@ -15,22 +15,26 @@
     <body>
       <nav>
         <img id="logo" src="images/bite-blog-logo.png">
-        <p>Bite Blog</p>
+        <p id="blog-title">Bite Blog</p>
         <ul id="sign-in">
           <li id="sign-up-button" class="button" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</li>
           <li id="log-in-button" class="button" data-bs-toggle="modal" data-bs-target="#logInModal">Log In</li>
         </ul>
         <ul id="logged-in">
-          <li>Blog</li>
-          <li>Create</li>
+          <li data-bs-toggle="modal" data-bs-target="#showUserBlogModal">Your Blogs</lidata-bs-toggle>
+          <li data-bs-toggle="modal" data-bs-target="#createBlogModal">New Blog</li>
+          <li id="create-post">Create</li>
           <li>Home</li>
         </ul>
       </nav>
-      <div class="post">  
+      <div class="main-content">
+
+      </div>
+      <!-- <div class="post">  
         <p><img class="profile-pic" src="images/2ccs.png"> <span class="title">TITLE</span></p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua.</p>
-      </div>
+      </div> -->
 
 
       <!-- Sign Up Modal -->
@@ -86,6 +90,52 @@
           </div>
         </div>
       </div>
+
+      <!--Create Blog Modal -->
+      <div class="modal fade" id="createBlogModal" tabindex="-1" aria-labelledby="createBlogModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createBlogModalLabel">Create Blog</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="display-text" id="create-display"></p>
+              <form id="create-blog-form">
+                Blog Name: <input id="create-blog-input" name="blog[title]" type="title" placeholder="title">
+                <br>
+                <!-- Password: <input name="credentials[password]" type="password" placeholder="password"> -->
+                <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Create Blog</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Show User Blogs Modal -->
+      <div class="modal fade" id="showUserBlogModal" tabindex="-1" aria-labelledby="showUserBlogModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="showUserBlogModalLabel">Your Blogs</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="user-blogs">
+              <p class="display-text"></p>
+            </div>
+            <div class="modal-footer">
+              <button id="close-update-users" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id='show-user-blogs' type="button" class="btn btn-primary">Show Blogs</button>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="sign-out">
       <i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>
     </div>
