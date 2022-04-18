@@ -66,7 +66,7 @@ const onDeleteBlogSuccess = function(title){
 }
 
 const onClickUpdateBlogSuccess = function(response){
-    console.log("onclick ui runs")
+    //console.log("onclick ui runs")
     let formHTML = '';
     let bgcolor = response.blog.backgroundColor;
     let aboutMe = response.blog.aboutMe;
@@ -95,8 +95,12 @@ const onClickUpdateBlogSuccess = function(response){
 }
 
 const onDynamicUpdateBlogSuccess = function(data){
-    console.log('hi!')
-    if(store.blog != '' && store.blog.title === data.blog.title) $('body').css('background-color', '#' + data.blog.backgroundColor)
+    // console.log('hi!')
+    // console.log(store.blog);
+    if(store.blog){
+        if(store.blog.backgroundColor === '')$('body').css('background-color', '#BD8C61')
+        if(store.blog.title === data.blog.title)$('body').css('background-color', '#' + data.blog.backgroundColor)
+    } 
 
     $('#update-display').text(`Your blog "${data.blog.title}" was updated!`);
 
