@@ -46,7 +46,21 @@ const onShowUserBlogsFailure = function(){
 const onShowBlogSuccess = function(response){
     //console.log(response)
     let bgcolor = response.blog.backgroundColor
-    if(response.blog.backgroundColor === "") bgcolor = 'BD8C61';
+    if(response.blog.backgroundColor === "" || response.blog.backgroundColor == undefined) bgcolor = 'BD8C61';
+    if(response.blog.aboutMe){
+        // != "" || response.blog.aboutMe != undefined
+        let aboutMeHTML = `
+        <div class="post">  
+        <p> <span class="title">ABOUT ME</span></p>
+        <p>${response.blog.aboutMe}</p>
+      </div>
+        `;
+        console.log("showaboutme")
+        $('#main-content').html(aboutMeHTML);
+    }else{
+        $('#main-content').html("");
+    }
+ 
 
     $('#showUserBlogModal').hide();
     $('.modal-backdrop').hide();
@@ -60,7 +74,10 @@ const onShowBlogSuccess = function(response){
 
 const onDeleteBlogSuccess = function(title){
     $('#user-blogs').text(`"${title}" deleted`);
-    $('#blog-title').text("Bite Blog");
+    if(store.blog.title === title){
+        $('#blog-title').text("Bite Blog");
+        $('body').css('background-color', '#BD8C61')
+    }
     store.blog = '';
 
 }
@@ -99,9 +116,25 @@ const onDynamicUpdateBlogSuccess = function(data){
     // console.log(store.blog);
     if(store.blog){
         if(store.blog.backgroundColor === '')$('body').css('background-color', '#BD8C61')
-        if(store.blog.title === data.blog.title)$('body').css('background-color', '#' + data.blog.backgroundColor)
+        if(store.blog.title === data.blog.title){
+            
+            $('body').css('background-color', '#' + data.blog.backgroundColor)
+        if(data.blog.aboutMe){
+            // != "" || response.blog.aboutMe != undefined
+            let aboutMeHTML = `
+            <div class="post">  
+            <p> <span class="title">ABOUT ME</span></p>
+            <p>${data.blog.aboutMe}</p>
+          </div>
+            `;
+            console.log("showaboutme")
+            $('#main-content').html(aboutMeHTML);
+        }else{
+            $('#main-content').html("");
+        }
+    }
     } 
-
+    
     $('#update-display').text(`Your blog "${data.blog.title}" was updated!`);
 
 }
