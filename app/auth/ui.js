@@ -50,11 +50,11 @@ const onSignOut = function(){
 }
 
 const onChangePasswordSuccess = function(){
-
+    $('.display-text').text('Password changed')
 }
 
 const onChangePasswordFailure = function(){
-
+    $('.display-text').text('Old Password does not match our records')
 }
 
 module.exports = {
@@ -63,4 +63,6 @@ module.exports = {
     onSignInFailure,
     onSignInSuccess,
     onSignOut,
+    onChangePasswordSuccess,
+    onChangePasswordFailure
 }

@@ -50,8 +50,27 @@ const onSignOut = function(){
             })
 }
 
+const onChangePassword = function(event){
+    event.preventDefault();
+    $('.display-text').text('');
+    
+    let form = event.target
+    let data = getFormFields(form);
+
+    if(data.passwords.old === data.passwords.new){
+        $('.display-text').text("Password's can not match");
+    }else{
+        authApi
+            .changePassword(data)
+            .then(() => authUi.onChangePasswordSuccess())
+            .catch(() => authUi.onChangePasswordFailure())
+    }
+
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
     onSignOut,
+    onChangePassword
 }

@@ -16,6 +16,7 @@ $(() => {
   $('#sign-up-form').on("submit", authEvents.onSignUp);
   $("#log-in-form").on("submit", authEvents.onSignIn);
   $("#create-blog-form").on("submit", blogEvents.onCreateBlog);
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').hide();
  $('#log-in-button').on('click', function(){
    $('.display-text').text('')
@@ -45,6 +46,9 @@ $(() => {
     $('#user-blogs').text("")
   })
 
+  $('#close-cp').on('click', function(){
+    $('.display-text').text('')
+  })
   $('#home-button').on('click', function(){
 
     $('#blog-title').text("Bite Blog");

@@ -24,6 +24,7 @@
           <li data-bs-toggle="modal" data-bs-target="#showUserBlogModal">Your Blogs</li>
           <li data-bs-toggle="modal" data-bs-target="#createBlogModal">New Blog</li>
           <!-- <li id="create-post">Create</li> -->
+          <li data-bs-toggle="modal" data-bs-target="#changePasswordModal">Change Password</li>
           <li id="home-button">Home</li>
         </ul>
       </nav>
@@ -85,6 +86,31 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password Modal -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="display-text"></p>
+              <form id="change-password-form">
+                Old Password: <input name="passwords[old]" type="password" placeholder="Old Password">
+                <br>
+                New Password: <input name="passwords[new]" type="password" placeholder="New Password">
+                <br>
+            </div>
+            <div class="modal-footer">
+              <button id="close-cp" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Change Password</button>
             </form>
             </div>
           </div>
