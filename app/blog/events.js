@@ -41,11 +41,10 @@ const onDynamicShowBlog = function(event){
     const blogTitle = event.target;
 
     const id = $(blogTitle).data('id');
-    console.log(id);
     blogApi
     .showBlog(id)
     .then((response)=> blogUi.onShowBlogSuccess(response))
-    .catch(()=>console.log('fail'))
+    // .catch(()=>console.log('fail'))
 }
 
 const onDynamicDeleteBlog =  function(event){
@@ -55,37 +54,36 @@ const onDynamicDeleteBlog =  function(event){
     blogApi
     .deleteBlog(id)
     .then(blogUi.onDeleteBlogSuccess(title))
-    .then(()=>console.log('how'))
+    // .then(()=>console.log('how'))
 }
 
 const onClickUpdateBlog  = function(event){
     const blog = event.target;
 
     const id = $(blog).data('id');
-    console.log(id);
+
     blogApi
     .showBlog(id)
     .then((response)=> blogUi.onClickUpdateBlogSuccess(response))
-    .catch(()=>console.log('fail'))
+    // .catch(()=>console.log('fail'))
 }
 
 
 const onDynamicUpdateBlog =  function(event){
     event.preventDefault();
-    console.log(event.target)
+
     let form = event.target
     let data = getFormFields(form);
     let id = $(form).data('id');
     let bgcolor = data.blog.backgroundColor
-    console.log(bgcolor.length)
+    
     if(bgcolor.length != 6 && bgcolor.length != 0){
         $('#update-display').text(`Please enter a 6 digit HEX number`);
     }else{
-        console.log(data)
         blogApi
         .updateBlog(id, data)
         .then(blogUi.onDynamicUpdateBlogSuccess(data))
-        .catch(()=>console.log('fail'))
+        // .catch(()=>console.log('fail'))
     }
 }
 

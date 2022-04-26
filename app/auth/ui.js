@@ -18,7 +18,6 @@ const onSignUpFailure = function(data){
 }
 
 const onSignInSuccess = function(response){
-    console.log(response);
     $('.display-text').text('');
     $('form').trigger('reset');
     $('#sign-in').hide();
@@ -41,12 +40,13 @@ const onSignOut = function(){
     $('#sign-in').show();
     $('#logged-in').hide();
      $('#sign-out').hide();
-
+     //$('.modal-backdrop').show();
 
      $('#main-content').html("");
      $('#blog-title').text("Bite Blog");
      $('body').css('background-color', '#BD8C61')
     
+     $('#user-blogs').text("")
 }
 
 const onChangePasswordSuccess = function(){
@@ -62,5 +62,5 @@ module.exports = {
     onSignUpSuccess,
     onSignInFailure,
     onSignInSuccess,
-    onSignOut
+    onSignOut,
 }

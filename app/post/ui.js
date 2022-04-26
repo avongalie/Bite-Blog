@@ -17,7 +17,6 @@ const onSignUpFailure = function(data){
 }
 
 const onSignInSuccess = function(response){
-    console.log(response);
     $('.display-text').text('');
     $('form').trigger('reset');
     $('#sign-in').hide();

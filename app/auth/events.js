@@ -36,7 +36,6 @@ const onSignIn = function(event){
     let form = event.target
     let data = getFormFields(form);
 
-
         authApi
             .signIn(data)
             .then((response) => authUi.onSignInSuccess(response))
@@ -45,7 +44,6 @@ const onSignIn = function(event){
 }
 
 const onSignOut = function(){
-    console.log('hi');
     authApi.signOut()
             .then(function(){
                 authUi.onSignOut()
@@ -55,5 +53,5 @@ const onSignOut = function(){
 module.exports = {
     onSignUp,
     onSignIn,
-    onSignOut
+    onSignOut,
 }

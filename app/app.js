@@ -19,12 +19,13 @@ $(() => {
   $('#sign-out').hide();
  $('#log-in-button').on('click', function(){
    $('.display-text').text('')
-  $('.modal-backdrop').show();
+ // $('.modal-backdrop').show();
  })
  $('#sign-up-button').on('click',function() {
   $('#sign-up-form').show();
    $('.display-text').text('')
   })
+
 
   $('#show-user-blogs').on('click', blogEvents.onShowUserBlogs)
 
@@ -36,11 +37,18 @@ $(() => {
     $('#update-blog-form').on('submit', blogEvents.onDynamicUpdateBlog)
   })
   //$('#update-blog-form').on('submit', blogEvents.onDynamicUpdateBlog)
- $('#create-post').hide();
+ //$('#create-post').hide();
   $('#sign-out').on('click', authEvents.onSignOut);
 
   $('#close-update-users').on('click', function(){
     
     $('#user-blogs').text("")
+  })
+
+  $('#home-button').on('click', function(){
+
+    $('#blog-title').text("Bite Blog");
+    $('body').css('background-color', '#BD8C61')
+    $('#main-content').html("");
   })
 })

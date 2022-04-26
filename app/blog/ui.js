@@ -7,18 +7,16 @@ const onCreateBlogSuccess = function(response){
     $('#create-display').text(`${response.blog.title} created`)
     $('form').trigger('reset');
     store.blog = response.blog
-    console.log(response)
     
 }
 
 const onCreateBlogFailure = function(data){
-    console.log(data)
     //$('.display-text').text(`Account with ${data.credentials.email} already exists`);
 }
 
 const onShowUserBlogsSuccess = function(response){
-    console.log(response);
     let responseData = response.blogs
+    let c =0;
     let blogHTML = '';
     responseData.forEach(blog =>{
         if(blog.owner._id === store.user._id){
@@ -26,13 +24,13 @@ const onShowUserBlogsSuccess = function(response){
                 <p><span class='show-blog-dynamic' data-id='${blog._id}'>${blog.title}</span> <button class='update-blog-dynamic' data-id='${blog._id}'>Update Blog</button><button class='delete-blog-dynamic' data-id='${blog._id}' data-title="${blog.title}">Delete Blog</button></p>
                 <br> 
             `
-            
+            c++;
         }
         
     }
     )
-
-    console.log(blogHTML)
+    if(c === 0) blogHTML = "<p>No Blogs created</p>"
+    
 
    $('#user-blogs').html(blogHTML);
     //list user blogs
@@ -44,7 +42,6 @@ const onShowUserBlogsFailure = function(){
 }
 
 const onShowBlogSuccess = function(response){
-    //console.log(response)
     let bgcolor = response.blog.backgroundColor
     if(response.blog.backgroundColor === "" || response.blog.backgroundColor == undefined) bgcolor = 'BD8C61';
     if(response.blog.aboutMe){
@@ -55,7 +52,6 @@ const onShowBlogSuccess = function(response){
         <p>${response.blog.aboutMe}</p>
       </div>
         `;
-        console.log("showaboutme")
         $('#main-content').html(aboutMeHTML);
     }else{
         $('#main-content').html("");
@@ -64,7 +60,7 @@ const onShowBlogSuccess = function(response){
 
     $('#showUserBlogModal').hide();
     $('.modal-backdrop').hide();
-    $('#create-post').show();
+    //$('#create-post').show();
     $('#blog-title').text(response.blog.title);
     $('body').css('background-color', '#' + bgcolor)
     store.blog =response.blog;
@@ -77,18 +73,18 @@ const onDeleteBlogSuccess = function(title){
     if(store.blog.title === title){
         $('#blog-title').text("Bite Blog");
         $('body').css('background-color', '#BD8C61')
+        $('#main-content').html("");
     }
     store.blog = '';
 
 }
 
 const onClickUpdateBlogSuccess = function(response){
-    //console.log("onclick ui runs")
+  
     let formHTML = '';
     let bgcolor = response.blog.backgroundColor;
     let aboutMe = response.blog.aboutMe;
-    console.log(bgcolor)
-    console.log(aboutMe)
+
     if(response.blog.backgroundColor === undefined) bgcolor = "";
     if(response.blog.aboutMe === undefined) aboutMe = "";
     formHTML += `
@@ -112,8 +108,7 @@ const onClickUpdateBlogSuccess = function(response){
 }
 
 const onDynamicUpdateBlogSuccess = function(data){
-    // console.log('hi!')
-    // console.log(store.blog);
+  
     if(store.blog){
         if(store.blog.backgroundColor === '')$('body').css('background-color', '#BD8C61')
         if(store.blog.title === data.blog.title){
@@ -127,7 +122,6 @@ const onDynamicUpdateBlogSuccess = function(data){
             <p>${data.blog.aboutMe}</p>
           </div>
             `;
-            console.log("showaboutme")
             $('#main-content').html(aboutMeHTML);
         }else{
             $('#main-content').html("");
