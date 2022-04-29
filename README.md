@@ -48,3 +48,7 @@ Once you have an account, sign in, and view your blogs!
 * Users can create posts for their blogs
 * Users can see other peoples blog posts from their homepage.
 * Blogs have custom URLS
+
+### API: 
+For more information about the API, check out the link to the API repo below.
+https://github.com/avongalie/Bite-Blog-API
