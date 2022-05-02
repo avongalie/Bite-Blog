@@ -12,11 +12,9 @@ const onCreateBlog = function(event){
     event.preventDefault();
     $('.display-text').text('');
     //$('#sign-up-form').show();
-    console.log(event)
     let form = event.target
     let data = getFormFields(form);
 
-    console.log(form)
 
     if(data.blog.title === ""){
         $('.display-text').text('Please enter blog name');
@@ -44,7 +42,6 @@ const onDynamicShowBlog = function(event){
     blogApi
     .showBlog(id)
     .then((response)=> blogUi.onShowBlogSuccess(response))
-    // .catch(()=>console.log('fail'))
 }
 
 const onDynamicDeleteBlog =  function(event){
@@ -54,7 +51,6 @@ const onDynamicDeleteBlog =  function(event){
     blogApi
     .deleteBlog(id)
     .then(blogUi.onDeleteBlogSuccess(title))
-    // .then(()=>console.log('how'))
 }
 
 const onClickUpdateBlog  = function(event){
@@ -65,7 +61,6 @@ const onClickUpdateBlog  = function(event){
     blogApi
     .showBlog(id)
     .then((response)=> blogUi.onClickUpdateBlogSuccess(response))
-    // .catch(()=>console.log('fail'))
 }
 
 
@@ -83,7 +78,6 @@ const onDynamicUpdateBlog =  function(event){
         blogApi
         .updateBlog(id, data)
         .then(blogUi.onDynamicUpdateBlogSuccess(data))
-        // .catch(()=>console.log('fail'))
     }
 }
 
